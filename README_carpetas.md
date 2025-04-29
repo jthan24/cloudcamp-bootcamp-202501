@@ -11,4 +11,13 @@ python carpetas.py
 ```
 ## Autor
 
+Laura Juliana Picón Acosta
+
+## Instalación
+
+ carpetas.py: Crear carpetas en un directorio usando nombres aleatorios
+ generar_readme_programa.py: Crear un readme para un programa especifico
+ hello.py: ejercicio de clase
+ prueba.sh: ejercicio de clase
+
 *Generado automáticamente desde docstring*
