@@ -9,24 +9,31 @@ from datetime import datetime
 def crear_carpeta_y_archivos():
     # Crear un nombre dinámico para la carpeta basado en la fecha y hora actual
     nombre_carpeta = f"carpeta_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    try:
     
-    # Si la carpeta ya existe, eliminarla
-    if os.path.exists(nombre_carpeta):
-        shutil.rmtree(nombre_carpeta)
-    
-    # Crear la carpeta
-    os.makedirs(nombre_carpeta)
-    
-    # Crear 10 archivos dentro de la carpeta
-    for i in range(1, 11):
-        nombre_archivo = f"archivo_{i}.txt"
-        ruta_archivo = os.path.join(nombre_carpeta, nombre_archivo)
+        # Si la carpeta ya existe, eliminarla
+        if os.path.exists(nombre_carpeta):
+            shutil.rmtree(nombre_carpeta)
         
-        # Escribir la fecha y hora de creación en cada archivo
-        with open(ruta_archivo, "w") as archivo:
-            archivo.write(f"Fecha y hora de creación: {datetime.now()}\n")
-    
-    print(f"Carpeta '{nombre_carpeta}' creada con 10 archivos.")
+        # Crear la carpeta
+        os.makedirs(nombre_carpeta)
+        
+        # Crear 10 archivos dentro de la carpeta
+        for i in range(1, 11):
+            nombre_archivo = f"archivo_{i}.txt"
+            ruta_archivo = os.path.join(nombre_carpeta, nombre_archivo)
+            
+            # Escribir la fecha y hora de creación en cada archivo
+            with open(ruta_archivo, "w") as archivo:
+                archivo.write(f"Fecha y hora de creación: {datetime.now()}\n")
+
+            archivo.close()
+        
+        print(f"Carpeta '{nombre_carpeta}' creada con 10 archivos.")
+
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
 
 if __name__ == "__main__":
     crear_carpeta_y_archivos()
